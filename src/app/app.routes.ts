@@ -1,12 +1,20 @@
 import { provideRouter, RouterConfig } from '@angular/router';
+
 // here we tell our app.routes what an ExampleComponent
 // while angular is very smart, we must assume that the files that make it up are stupid
 // we need to teach it everything about our app
-import { ExampleComponent } from './example/example.component';
+import { LandingPageComponent } from './landing-page';
+import { UserViewComponent } from './user-view';
+import { PollViewComponent } from './user-view/poll-view/poll-view.component';
+import { PollResultsComponent } from './user-view/poll-results/poll-results.component';
 
 export const routes: RouterConfig = [
     //This is an example route
-    { path: '/example', component: ExampleComponent, index: true },
+    { path: '/landing', component: LandingPageComponent, index: true },
+    { path: '/user/:id', component: UserViewComponent, children: [
+      { path: '/poll/:id', component: PollViewComponent},
+      { path: '/results/:id', component: PollResultsComponent}
+    ]}
     //since we made the ExampleComponent let's uncomment it
     // { path: '/exampleParent', component: ExampleParentComponent, children: [
     //   { path: '/exampleChildRoot', component: ExampleChildRootComponent, index: true },

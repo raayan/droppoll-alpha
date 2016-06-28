@@ -81,6 +81,11 @@ const barrels: string[] = [
   'app/server-feed-list',
   'app/server-avatars',
   'app/example',
+  'app/poll-view',
+  'app/user-vie',
+  'app/user-view',
+  'app/landing-page',
+  'app/poll-results',
   /** @cli-barrel */
 ];
 

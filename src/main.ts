@@ -11,10 +11,14 @@ import { APP_ROUTER_PROVIDERS } from './app/app.routes';
 import { HTTP_PROVIDERS } from '@angular/http';
 
 // firebase dependency
-import { FIREBASE_PROVIDERS, defaultFirebase } from 'angularfire2';
+import { FIREBASE_PROVIDERS, defaultFirebase, 
+  AuthMethods, 
+  AuthProviders, 
+  firebaseAuthConfig} from 'angularfire2';
 
 // here we are going to globally provide a service
 import { ExampleService } from './app/example.service';
+import { FirebaseDataService } from './app/firebase-data.service';
 
 if (environment.production) {
   enableProdMode();
@@ -26,13 +30,19 @@ if (environment.production) {
 bootstrap(AppComponent, [
   APP_ROUTER_PROVIDERS, // angular 2 component router global directives
   ExampleService, // now our exampleService is globally provided! go to example.component to see it in use
+  FirebaseDataService,
   HTTP_PROVIDERS,
   FIREBASE_PROVIDERS,
   // Initialize Firebase app  
   defaultFirebase({
-    apiKey: "<your-key>",
-    authDomain: "<your-project-authdomain>",
-    databaseURL: "<your-database-URL>",
-    storageBucket: "<your-storage-bucket>",
+    apiKey: "AIzaSyB8UKkBLQUxJCZOn4Y9K4GbkSir97ftfnY",
+    authDomain: "droppoll-6e9ae.firebaseapp.com",
+    databaseURL: "https://droppoll-6e9ae.firebaseio.com",
+    storageBucket: "droppoll-6e9ae.appspot.com",
+  }),
+  firebaseAuthConfig({
+    provider: AuthProviders.Anonymous,
+    method: AuthMethods.Anonymous
   })
+
 ]);

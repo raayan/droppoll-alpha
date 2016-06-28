@@ -10,11 +10,11 @@ import {
   async, inject
 } from '@angular/core/testing';
 
-import { ExampleComponent } from './example.component';
+import { LandingPageComponent } from './landing-page.component';
 
-describe('Component: Example', () => {
-  it('should create an instance', () => {
-    let component = new ExampleComponent();
-    expect(component).toBeTruthy();
-  });
-});
+// describe('Component: LandingPage', () => {
+//   it('should create an instance', () => {
+//     let component = new LandingPageComponent();
+//     expect(component).toBeTruthy();
+//   });
+// });
